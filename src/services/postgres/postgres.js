@@ -5,7 +5,7 @@ export const sequelize = new Sequelize(config.database, config.username, config.
 
 function check() {
   return sequelize.authenticate().catch(err => {
-    throw new Error(`DB is down. ${err}`);
+    throw new Error(`DB is down. ${err.message}`);
   });
 }
 

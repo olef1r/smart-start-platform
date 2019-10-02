@@ -1,5 +1,5 @@
 import express from 'express';
-import postgres from './services/postgres';
+import postgres from './services/postgres/postgres';
 
 const app = express();
 
