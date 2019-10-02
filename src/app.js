@@ -1,26 +1,24 @@
 import express from 'express';
-import postgres from './services/index';
+import postgres from './services/postgres';
 
 const app = express();
 
-function startExpress() {
+function startService() {
   app.set('port', process.env.PORT);
   app.listen(app.get('port'), () => {
-    console.log(`Express server listening on port ${app.get('port')}`);
+    console.log(`Server listening on port ${app.get('port')}`);
   });
 };
 
-function onError(err) {
-  console.error(err);
-  console.error('Express server not started.');
-  console.error(`Message: ${err.message}`);
+function error(err) {
+  console.error(`Error message: ${err.message}`);
 };
 
 function start() {
   postgres
-  .checkConnection()
-  .then(startExpress)
-  .catch(onError);
+  .check()
+  .then(startService)
+  .catch(error);
 }
 
 function stop() {

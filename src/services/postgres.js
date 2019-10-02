@@ -3,14 +3,14 @@ import config from './config';
 
 export const sequelize = new Sequelize(config.database, config.username, config.password, config);
 
-function checkConnection() {
+function check() {
   return sequelize.authenticate().catch(err => {
-    throw new Error(`Postgres is down. ${err}`);
+    throw new Error(`DB is down. ${err}`);
   });
 }
 
 export default {
-  checkConnection
+  check
 };
 
 
