@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
-  const Users = sequelize.define(
-    'Users',
+  const Projects = sequelize.define(
+    'Projects',
     {
       id: {
         type: DataTypes.UUID,
@@ -12,13 +12,13 @@ module.exports = (sequelize, DataTypes) => {
         unique: true,
         allowNull: false
       },
-      email: {
-        type: DataTypes.STRING,
+      description: {
+        type: DataTypes.TEXT,
         unique: true,
         allowNull: false
       }
     },
     {}
     );
-  return Users;
+  return Projects;
 }

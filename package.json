@@ -1,0 +1,41 @@
+{
+  "name": "snart-start-platform",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node src/index.js",
+    "db:create": "node_modules/.bin/sequelize db:create; exit 0;",
+    "db:seed:all": "./node_modules/.bin/babel-node node_modules/.bin/sequelize db:seed:all",
+    "db:migrate": "./node_modules/.bin/babel-node node_modules/sequelize-cli/lib/sequelize db:migrate",
+    "db:rollback": "./node_modules/.bin/babel-node node_modules/.bin/sequelize db:migrate:undo",
+    "db:rollback:all": "./node_modules/.bin/babel-node node_modules/.bin/sequelize db:migrate:undo:all",
+    "db:drop": "node_modules/.bin/sequelize db:drop; exit 0",
+    "db:migration": "node_modules/.bin/sequelize migration:generate",
+    "db:model": "node_modules/.bin/sequelize model:generate",
+    "db:seed": "node_modules/.bin/sequelize seed:generate"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "nodemon": "^1.19.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "path": "^0.12.7",
+    "pg": "^7.11.0",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.19.2",
+    "sequelize-cli": "^5.5.1"
+  }
+}
