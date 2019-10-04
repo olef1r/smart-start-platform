@@ -6,8 +6,8 @@ function create(model) {
 };
 
 function get(id) {
-  return Users.findOne({ whesre: { id } })
-}
+  return Users.findOne({ where: { id } })
+};
 
 export default {
   create,
