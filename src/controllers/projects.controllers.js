@@ -1,6 +1,7 @@
 import projectsService from '../services/postgres/projects.services';
-const FILEDS_TO_UPDATE = ['name'];
 import { pick } from 'lodash';
+
+const FILEDS_TO_UPDATE = ['name'];
 
 export async function createProject(req, res) {
   try {
@@ -25,7 +26,7 @@ export async function getProjectById(req, res) {
 export async function updateProject(req, res) {
   try {
     const data = pick(req.body, FILEDS_TO_UPDATE);
-    await projectsService.update(data);
+    await projectsService.update(req.params.id, data);
     res.status(202);
     res.send();
   } catch (error) {
