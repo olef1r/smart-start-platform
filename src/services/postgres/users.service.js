@@ -9,7 +9,12 @@ function get(id) {
   return Users.findOne({ where: { id } })
 };
 
+function update(id, body) {
+  return Users.update(body, { where: { id } });
+};
+
 export default {
   create,
-  get
+  get, 
+  update
 };
